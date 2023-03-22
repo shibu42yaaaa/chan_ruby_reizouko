@@ -1,3 +1,5 @@
+require './power'
+
 class ReizokoA
   def initialize(num)
     @set_temperture = num.to_i
@@ -24,15 +26,18 @@ class ReizokoA
   end
 
   # 冷蔵庫に食材を入れる
-  def puts_in(str)
+  def puts_in(str)link_to "link text...", parent_child_path(@parent, @child)
     @foodstuff << str
   end
 
   #電源ON
-  def power(onoff)
-    puts "電源を入れました。" if onoff.to_sym == :on
-    puts "電源を切りました。" if onoff.to_sym == :off
-  end
+# モジュール化
+#   def power(onoff)
+#     puts "電源を入れました。" if onoff.to_sym == :on
+#     puts "電源を切りました。" if onoff.to_sym == :off
+#   end
+
+  include Power
 end
 
 if __FILE__ == $0 then
